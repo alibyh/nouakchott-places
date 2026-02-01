@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouakchott Places Manager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📍 Nouakchott Places Manager</h1>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Total Places:</span>
+                    <span class="stat-value" id="totalPlaces">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Selected:</span>
+                    <span class="stat-value" id="selectedCount">0</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Search by name or type...">
+            </div>
+            <div class="action-buttons">
+                <button id="selectAllBtn" class="btn btn-secondary">Select All</button>
+                <button id="deselectAllBtn" class="btn btn-secondary">Deselect All</button>
+                <button id="deleteBtn" class="btn btn-danger" disabled>Delete Selected</button>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <label>Filter by Type:</label>
+            <select id="typeFilter">
+                <option value="">All Types</option>
+            </select>
+        </div>
+
+        <div class="table-container">
+            <table id="placesTable">
+                <thead>
+                    <tr>
+                        <th class="checkbox-col">
+                            <input type="checkbox" id="headerCheckbox">
+                        </th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Types</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody id="placesTableBody">
+                    <!-- Places will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+            <div class="spinner"></div>
+            <p>Processing...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

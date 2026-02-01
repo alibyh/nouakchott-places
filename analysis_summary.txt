@@ -1,0 +1,33 @@
+GOOGLE PLACES EXTRACTION SUMMARY
+======================================================================
+
+Total Places: 5,786
+Unique Place Types: 85
+
+Top 20 Place Types:
+----------------------------------------------------------------------
+ 1. point_of_interest              5,775 ( 99.8%)
+ 2. establishment                  5,775 ( 99.8%)
+ 3. store                          1,670 ( 28.9%)
+ 4. food                             756 ( 13.1%)
+ 5. place_of_worship                 620 ( 10.7%)
+ 6. mosque                           598 ( 10.3%)
+ 7. lodging                          555 (  9.6%)
+ 8. health                           441 (  7.6%)
+ 9. grocery_or_supermarket           342 (  5.9%)
+10. school                           248 (  4.3%)
+11. restaurant                       238 (  4.1%)
+12. clothing_store                   215 (  3.7%)
+13. pharmacy                         168 (  2.9%)
+14. car_repair                       165 (  2.9%)
+15. shopping_mall                    148 (  2.6%)
+16. home_goods_store                 144 (  2.5%)
+17. gas_station                      131 (  2.3%)
+18. hair_care                        124 (  2.1%)
+19. electronics_store                109 (  1.9%)
+20. supermarket                      104 (  1.8%)
+
+Geographic Coverage:
+----------------------------------------------------------------------
+Latitude range: 17.9546 to 18.1488
+Longitude range: -16.0310 to -15.8538

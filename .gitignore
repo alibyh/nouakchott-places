@@ -1,0 +1,49 @@
+# Environment and secrets
+.env
+*.key
+.credentials
+
+# Output files
+nouakchott_places.json
+*_places.json
+extraction_checkpoint.json
+*.checkpoint.json
+
+# Logs
+extraction.log
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+temp/
+tmp/
