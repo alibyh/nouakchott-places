@@ -22,17 +22,50 @@ header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 15px 20px;
-    text-align: center;
     flex-shrink: 0;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 5px;
 }
 
 header h1 {
     font-size: 1.4rem;
     font-weight: 600;
-    margin-bottom: 5px;
+    margin: 0;
+}
+
+.header-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-icon {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.btn-icon:active {
+    background: rgba(255, 255, 255, 0.4);
 }
 
 .stats {
+    text-align: center;
     font-size: 0.9rem;
     opacity: 0.9;
 }
@@ -57,9 +90,16 @@ header h1 {
     flex-shrink: 0;
 }
 
-.controls input {
+.search-wrap {
     flex: 1;
-    padding: 10px 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-wrap input {
+    width: 100%;
+    padding: 10px 36px 10px 15px;
     border: none;
     border-radius: 10px;
     background: #f2f2f7;
@@ -67,8 +107,36 @@ header h1 {
     outline: none;
 }
 
-.controls input:focus {
+.search-wrap input:focus {
     background: #e5e5ea;
+}
+
+.clear-btn {
+    position: absolute;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #c7c7cc;
+    color: white;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.clear-btn:hover,
+.clear-btn:active {
+    background: #8e8e93;
+}
+
+.clear-btn.hidden {
+    display: none;
 }
 
 .btn {

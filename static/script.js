@@ -6,9 +6,12 @@ let selectedIds = new Set();
 // DOM elements
 const placesList = document.getElementById('placesList');
 const searchInput = document.getElementById('searchInput');
+const clearSearchBtn = document.getElementById('clearSearchBtn');
 const typeFilter = document.getElementById('typeFilter');
 const deleteBtn = document.getElementById('deleteBtn');
 const headerCheckbox = document.getElementById('headerCheckbox');
+const copyJsonBtn = document.getElementById('copyJsonBtn');
+const downloadJsonBtn = document.getElementById('downloadJsonBtn');
 const totalPlacesSpan = document.getElementById('totalPlaces');
 const selectedCountSpan = document.getElementById('selectedCount');
 const loadingOverlay = document.getElementById('loadingOverlay');
@@ -21,10 +24,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Setup event listeners
 function setupEventListeners() {
-    searchInput.addEventListener('input', filterPlaces);
+    searchInput.addEventListener('input', () => {
+        filterPlaces();
+        updateClearButton();
+    });
     typeFilter.addEventListener('change', filterPlaces);
     deleteBtn.addEventListener('click', deleteSelected);
     headerCheckbox.addEventListener('change', toggleAllCheckboxes);
+    clearSearchBtn.addEventListener('click', clearSearch);
+    copyJsonBtn.addEventListener('click', copyJson);
+    downloadJsonBtn.addEventListener('click', downloadJson);
+}
+
+function updateClearButton() {
+    if (searchInput.value.trim()) {
+        clearSearchBtn.classList.remove('hidden');
+    } else {
+        clearSearchBtn.classList.add('hidden');
+    }
+}
+
+function clearSearch() {
+    searchInput.value = '';
+    filterPlaces();
+    clearSearchBtn.classList.add('hidden');
+    searchInput.focus();
+}
+
+async function copyJson() {
+    try {
+        const json = JSON.stringify(allPlaces, null, 2);
+        await navigator.clipboard.writeText(json);
+        copyJsonBtn.textContent = '✓';
+        setTimeout(() => { copyJsonBtn.textContent = '📋'; }, 1500);
+    } catch (err) {
+        alert('Copy failed');
+    }
+}
+
+function downloadJson() {
+    const json = JSON.stringify(allPlaces, null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'nouakchott_places.json';
+    a.click();
+    URL.revokeObjectURL(url);
 }
 
 // Load places from API
@@ -38,6 +84,7 @@ async function loadPlaces() {
         populateTypeFilter();
         renderPlaces();
         updateStats();
+        updateClearButton();
     } catch (error) {
         console.error('Error loading places:', error);
         placesList.innerHTML = '<div class="empty-state"><p>Failed to load places</p></div>';

@@ -10,7 +10,13 @@
 </head>
 <body>
     <header>
-        <h1>📍 Places</h1>
+        <div class="header-top">
+            <h1>📍 Places</h1>
+            <div class="header-actions">
+                <button id="copyJsonBtn" class="btn-icon" title="Copy JSON">📋</button>
+                <button id="downloadJsonBtn" class="btn-icon" title="Download JSON">⬇</button>
+            </div>
+        </div>
         <div class="stats">
             <span id="totalPlaces">0</span> total
             <span class="divider">|</span>
@@ -19,7 +25,10 @@
     </header>
 
     <div class="controls">
-        <input type="text" id="searchInput" placeholder="🔍 Search...">
+        <div class="search-wrap">
+            <input type="text" id="searchInput" placeholder="🔍 Search...">
+            <button id="clearSearchBtn" class="clear-btn hidden" type="button" title="Clear" aria-label="Clear search">×</button>
+        </div>
         <button id="deleteBtn" class="btn btn-danger" disabled>Delete</button>
     </div>
 
