@@ -20,11 +20,13 @@
 
     <div class="controls">
         <input type="text" id="searchInput" placeholder="🔍 Search...">
-        <div class="action-buttons">
-            <button id="selectAllBtn" class="btn btn-secondary">All</button>
-            <button id="deselectAllBtn" class="btn btn-secondary">None</button>
-            <button id="deleteBtn" class="btn btn-danger" disabled>Delete</button>
-        </div>
+        <button id="deleteBtn" class="btn btn-danger" disabled>Delete</button>
+    </div>
+
+    <div class="filter-row">
+        <select id="typeFilter">
+            <option value="">All Types</option>
+        </select>
     </div>
 
     <div class="list-container" id="listContainer">
