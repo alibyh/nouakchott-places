@@ -4,8 +4,8 @@
 .credentials
 
 # Output files
-nouakchott_places.json
 *_places.json
+!nouakchott_places.json
 extraction_checkpoint.json
 *.checkpoint.json
 
